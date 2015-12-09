@@ -57,6 +57,10 @@ namespace Castle.Core.Logging.Tests
 		{
 			TraceLoggerFactory factory = new TraceLoggerFactory();
 			ILogger logger = factory.Create(typeof(TraceLoggerTests), LoggerLevel.Debug);
+#if !FEATURE_CONFIGURATION
+			TraceLogger.NETCORE_TEST_AddTraceSourceListener("Castle.Core.Logging.Tests.TraceLoggerTests", new Listener("testsrule"));
+#endif
+
 			logger.Debug("this is a tracing message");
 
 			Listener.AssertContains("testsrule", "Castle.Core.Logging.Tests.TraceLoggerTests");
@@ -68,6 +72,9 @@ namespace Castle.Core.Logging.Tests
 		{
 			TraceLoggerFactory factory = new TraceLoggerFactory();
 			ILogger logger = factory.Create(typeof(TraceLoggerTests), LoggerLevel.Debug);
+#if !FEATURE_CONFIGURATION
+			TraceLogger.NETCORE_TEST_AddTraceSourceListener("Castle.Core.Logging.Tests.TraceLoggerTests", new Listener("testsrule"));
+#endif
 			try
 			{
 				try
@@ -99,8 +106,12 @@ namespace Castle.Core.Logging.Tests
 		[Platform(Exclude = "mono", Reason = "Mono has a bug that causes the listeners to not fully work.")]
 		public void FallUpToShorterSourceName()
 		{
+#if !FEATURE_CONFIGURATION
+			TraceLogger.NETCORE_TEST_AddTraceSourceListener("Castle.Core.Configuration", new Listener("configrule"));
+#endif
 			TraceLoggerFactory factory = new TraceLoggerFactory();
 			ILogger logger = factory.Create(typeof(Configuration.Xml.XmlConfigurationDeserializer), LoggerLevel.Debug);
+
 			logger.Info("Logging to config namespace");
 
 			Listener.AssertContains("configrule", "Castle.Core.Configuration.Xml.XmlConfigurationDeserializer");
@@ -113,6 +124,10 @@ namespace Castle.Core.Logging.Tests
 		{
 			TraceLoggerFactory factory = new TraceLoggerFactory();
 			ILogger logger = factory.Create("System.Xml.XmlDocument", LoggerLevel.Debug);
+#if !FEATURE_CONFIGURATION
+			TraceLogger.NETCORE_TEST_AddTraceSourceListener("System.Xml.XmlDocument", new Listener("defaultrule"));
+#endif
+
 			logger.Info("Logging to non-configured namespace namespace");
 
 			Listener.AssertContains("defaultrule", "System.Xml.XmlDocument");

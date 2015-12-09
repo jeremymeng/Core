@@ -41,6 +41,20 @@ namespace Castle.Core.Logging
 	public class TraceLogger : LevelFilteredLogger
 	{
 		private static readonly Dictionary<string, TraceSource> cache = new Dictionary<string, TraceSource>();
+#if !FEATURE_CONFIGURATION
+		// .Net Core does not support App.Config so we cannot configure trace listeners in that way.
+		// This test helper method allows adding listeners to trace sources for TraceLogger.
+		internal static bool NETCORE_TEST_AddTraceSourceListener(string traceSourceName, TraceListener listener)
+		{
+			if (!cache.ContainsKey(traceSourceName))
+			{
+				cache.Add(traceSourceName, new TraceSource("unnamed"));
+			}
+
+			cache[traceSourceName].Listeners.Add(listener);
+			return true;
+		}
+#endif
 
 		private TraceSource traceSource;
 
