@@ -1,0 +1,190 @@
+﻿{
+  "version": "3.3.4-*",
+  "description": "Castle.Core",
+  "authors": [ "" ],
+  "owners": [ "" ],
+  "tags": [ "" ],
+  "projectUrl": "https://github.com/castleproject/Core",
+  "licenseUrl": "https://github.com/castleproject/Core/blob/master/License.txt",
+  "copyright": "2004-2015 Castle Project - http://www.castleproject.org/",
+  "requireLicenseAcceptance": false,
+  "summary": "",
+  "releaseNotes": "",
+  "frameworks": {
+    "net35": {
+      "frameworkAssemblies": {
+        "System": "",
+        "System.Configuration": "",
+        "System.Core": "",
+        "System.Xml": ""
+      },
+      "compilationOptions": {
+        "warningsAsErrors": true,
+        "keyFile": "../../buildscripts/CastleKey.snk",
+        "define": [
+          "DOTNET35",
+          "FEATURE_APPDOMAIN",
+          "FEATURE_ASSEMBLYBUILDER_SAVE",
+          "FEATURE_BINDINGLIST",
+          "FEATURE_DICTIONARYADAPTER_XML",
+          "FEATURE_EMIT_CUSTOMMODIFIERS",
+          "FEATURE_EVENTLOG",
+          "FEATURE_GAC",
+          "FEATURE_GET_REFERENCED_ASSEMBLIES",
+          "FEATURE_IDATAERRORINFO",
+          "FEATURE_ISUPPORTINITIALIZE",
+          "FEATURE_LEGACY_REFLECTION_API",
+          "FEATURE_LISTSORT",
+          "FEATURE_REMOTING",
+          "FEATURE_SECURITY_PERMISSIONS",
+          "FEATURE_SERIALIZATION",
+          "FEATURE_SIGN_ASSEMBLY",
+          "FEATURE_SMTP",
+          "FEATURE_STRONGNAME",
+          "FEATURE_SYSTEM_CONFIGURATION",
+          "FEATURE_TARGETEXCEPTION",
+          "FEATURE_TEST_COM"
+        ]
+      }
+    },
+    "net40": {
+      "frameworkAssemblies": {
+        "System": "",
+        "System.Configuration": "",
+        "System.Core": "",
+        "System.Xml": ""
+      },
+      "compilationOptions": {
+        "warningsAsErrors": true,
+        "keyFile": "../../buildscripts/CastleKey.snk",
+        "define": [
+          "DOTNET40",
+          "FEATURE_APPDOMAIN",
+          "FEATURE_ASSEMBLYBUILDER_SAVE",
+          "FEATURE_BINDINGLIST",
+          "FEATURE_DICTIONARYADAPTER_XML",
+          "FEATURE_EMIT_CUSTOMMODIFIERS",
+          "FEATURE_EVENTLOG",
+          "FEATURE_GAC",
+          "FEATURE_GET_REFERENCED_ASSEMBLIES",
+          "FEATURE_IDATAERRORINFO",
+          "FEATURE_ISUPPORTINITIALIZE",
+          "FEATURE_LEGACY_REFLECTION_API",
+          "FEATURE_LISTSORT",
+          "FEATURE_REMOTING",
+          "FEATURE_SECURITY_PERMISSIONS",
+          "FEATURE_SERIALIZATION",
+          "FEATURE_SMTP",
+          "FEATURE_STRONGNAME",
+          "FEATURE_SYSTEM_CONFIGURATION",
+          "FEATURE_TARGETEXCEPTION",
+          "FEATURE_TEST_COM"
+        ]
+      }
+    },
+    "net45": {
+      "frameworkAssemblies": {
+        "System": "",
+        "System.Configuration": "",
+        "System.Core": "",
+        "System.Xml": ""
+      },
+      "compilationOptions": {
+        "warningsAsErrors": true,
+        "keyFile": "../../buildscripts/CastleKey.snk",
+        "define": [
+          "DOTNET40",
+          "DOTNET45",
+          "FEATURE_APPDOMAIN",
+          "FEATURE_ASSEMBLYBUILDER_SAVE",
+          "FEATURE_BINDINGLIST",
+          "FEATURE_DICTIONARYADAPTER_XML",
+          "FEATURE_EMIT_CUSTOMMODIFIERS",
+          "FEATURE_EVENTLOG",
+          "FEATURE_GAC",
+          "FEATURE_GET_REFERENCED_ASSEMBLIES",
+          "FEATURE_IDATAERRORINFO",
+          "FEATURE_ISUPPORTINITIALIZE",
+          "FEATURE_LISTSORT",
+          "FEATURE_REMOTING",
+          "FEATURE_SECURITY_PERMISSIONS",
+          "FEATURE_SERIALIZATION",
+          "FEATURE_SMTP",
+          "FEATURE_STRONGNAME",
+          "FEATURE_SYSTEM_CONFIGURATION",
+          "FEATURE_TARGETEXCEPTION",
+          "FEATURE_TEST_COM"
+        ]
+      }
+    },
+    "net46": {
+      "frameworkAssemblies": {
+        "System": "",
+        "System.Configuration": "",
+        "System.Core": "",
+        "System.Xml": ""
+      },
+      "compilationOptions": {
+        "warningsAsErrors": true,
+        "keyFile": "../../buildscripts/CastleKey.snk",
+        "define": [
+          "FEATURE_APPDOMAIN",
+          "FEATURE_ASSEMBLYBUILDER_SAVE",
+          "FEATURE_BINDINGLIST",
+          "FEATURE_DICTIONARYADAPTER_XML",
+          "FEATURE_EMIT_CUSTOMMODIFIERS",
+          "FEATURE_EVENTLOG",
+          "FEATURE_GAC",
+          "FEATURE_GET_REFERENCED_ASSEMBLIES",
+          "FEATURE_IDATAERRORINFO",
+          "FEATURE_ISUPPORTINITIALIZE",
+          "FEATURE_LISTSORT",
+          "FEATURE_REMOTING",
+          "FEATURE_SECURITY_PERMISSIONS",
+          "FEATURE_SERIALIZATION",
+          "FEATURE_SMTP",
+          "FEATURE_STRONGNAME",
+          "FEATURE_SYSTEM_CONFIGURATION",
+          "FEATURE_TARGETEXCEPTION",
+          "FEATURE_TEST_COM"
+        ]
+      }
+    },
+    "dotnet5.5": {
+      "dependencies": {
+        "System.AppContext": "4.0.0",
+        "System.Collections.Specialized": "4.0.0",
+        "System.ComponentModel.TypeConverter": "4.0.0",
+        "System.Console": "4.0.0-beta-23123",
+        "System.Diagnostics.Tools": "4.0.0",
+        "System.Diagnostics.TraceSource": "4.0.0-beta-23123",
+        "System.Dynamic.Runtime": "4.0.10",
+        "System.Globalization": "4.0.10",
+        "System.Linq": "4.0.0",
+        "System.ObjectModel": "4.0.10",
+        "System.Reflection": "4.0.10",
+        "System.Reflection.Emit": "4.0.0",
+        "System.Reflection.Emit.Lightweight": "4.0.0",
+        "System.Reflection.Extensions": "4.0.0",
+        "System.Reflection.TypeExtensions": "4.0.0",
+        "System.Runtime": "4.0.20",
+        "System.Runtime.Extensions": "4.0.10",
+        "System.Threading": "4.0.10",
+        "System.Xml.XmlDocument": "4.0.0",
+        "System.Xml.XmlSerializer": "4.0.10"
+      },
+      "compilationOptions": {
+        "warningsAsErrors": true,
+        "keyFile": "../../buildscripts/CastleKey.snk",
+        "define": [ "FEATURE_NETCORE_REFLECTION_API", "FEATURE_SIGN_ASSEMBLY" ]
+      }
+    }
+  },
+  "compile": [
+    "../Castle.Core/**/*.cs",
+    "../../buildscripts/CommonAssemblyInfo.cs",
+  ],
+  "exclude": [
+    "../Castle.Core/obj/**/*.cs"
+  ]
+}
