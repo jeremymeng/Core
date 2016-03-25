@@ -18,7 +18,7 @@
     "netstandard1.3": {
       "imports": [ "dotnet5.4" ],
       "dependencies": {
-        "NETStandard.Library": "1.0.0-rc2-*",
+        "NETStandard.Library": "1.5.0-rc2-*",
         "System.AppContext": "4.1.0-rc2-*",
         "System.Collections.Specialized": "4.0.1-rc2-*",
         "System.ComponentModel.TypeConverter": "4.0.1-rc2-*",

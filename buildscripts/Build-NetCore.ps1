@@ -1,40 +1,35 @@
-$frameworkVersion = "1.0.0-rc1-update1"
-$frameworkArchitecture = "x86"
+$dotnetHome = Join-Path (Get-Location) ".dotnet"
+$dotnetPath = Join-Path $dotnetHome "bin"
 
-$dnxHome = Join-Path (Get-Location) ".dnx"
-$dnxPath = Join-Path $dnxHome "bin"
+Write-Host "Downloading dnvm to: $dotnetPath"
+if (!(Test-Path $dotnetPath)) { md $dotnetPath | Out-Null }
 
-Write-Host "Downloading dnvm to: $dnxPath"
-if (!(Test-Path $dnxPath)) { md $dnxPath | Out-Null }
-
-$dnvmPs1Path = Join-Path $dnxPath "dnvm.ps1"
-$dnvmCmdPath = Join-Path $dnxPath "dnvm.cmd"
+$installPs1Path = Join-Path $dotnetPath "install.ps1"
 
 $wc = New-Object System.Net.WebClient
-$wc.DownloadFile('https://raw.githubusercontent.com/aspnet/Home/dev/dnvm.ps1', $dnvmPs1Path)
-$wc.DownloadFile('https://raw.githubusercontent.com/aspnet/Home/dev/dnvm.cmd', $dnvmCmdPath)
+$wc.DownloadFile('https://raw.githubusercontent.com/dotnet/cli/rel/1.0.0/scripts/obtain/install.ps1', $installPs1Path)
 
-Write-Host "Downloading dnx"
+$env:InstallDir = $dotnetHome
 
-$env:PATH = ("$dnxPath;" + $env:PATH)
+Write-Host "Downloading dotnet/cli"
 
-dnvm install $frameworkVersion -runtime coreclr -arch $frameworkArchitecture
+$installPs1Path
 
-dnx --version
+$env:PATH = ("$dotnetPath;" + $env:PATH)
+
+dotnet --version
 
 Write-Host "Downloading packages"
 
-dnu restore
+dotnet restore
 
 Write-Host "Building"
 
-$env:Path = ((Join-Path $dnxHome "runtimes\dnx-coreclr-win-$frameworkArchitecture.$frameworkVersion\bin") + ";" + $env:Path)
-
-dnu build src/Castle.Core src/Castle.Core.Tests --configuration Release --out build/NETCORE
+dotnet build src/Castle.Core src/Castle.Core.Tests --configuration Release --out build/NETCORE
 
 Write-Host "Running tests"
 
 cd src/Castle.Core.Tests
-dnx test
+dotnet test
 
 exit $LASTEXITCODE
