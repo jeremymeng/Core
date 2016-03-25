@@ -1,7 +1,7 @@
 $dotnetHome = Join-Path (Get-Location) ".dotnet"
 $dotnetPath = Join-Path $dotnetHome "bin"
 
-Write-Host "Downloading dnvm to: $dotnetPath"
+Write-Host "Downloading install.ps1 to: $dotnetPath"
 if (!(Test-Path $dotnetPath)) { md $dotnetPath | Out-Null }
 
 $installPs1Path = Join-Path $dotnetPath "install.ps1"
@@ -13,7 +13,7 @@ $env:InstallDir = $dotnetHome
 
 Write-Host "Downloading dotnet/cli"
 
-. $installPs1Path -Channel Production -InstallDir $installPs1Path
+. $installPs1Path -InstallDir $dotnetHome
 
 $env:PATH = ("$dotnetPath;" + $env:PATH)
 
