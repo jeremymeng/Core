@@ -21,14 +21,13 @@ dotnet --version
 
 Write-Host "Downloading packages"
 
-cd src/Castle.Core
-dotnet restore
-cd ../Castle.Core.Tests
+cd src
 dotnet restore
 
 Write-Host "Building"
 
-dotnet build --configuration Release --out build/NETCORE
+cd Castle.Core.Tests
+dotnet build --configuration Release
 
 Write-Host "Running tests"
 
