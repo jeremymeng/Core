@@ -11,11 +11,9 @@ $wc.DownloadFile('https://raw.githubusercontent.com/dotnet/cli/rel/1.0.0/scripts
 
 $env:InstallDir = $dotnetHome
 
-printenv
-
 Write-Host "Downloading dotnet/cli"
 
-. $installPs1Path
+. $installPs1Path -Channel Production -InstallDir $installPs1Path
 
 $env:PATH = ("$dotnetPath;" + $env:PATH)
 
@@ -23,15 +21,17 @@ dotnet --version
 
 Write-Host "Downloading packages"
 
+cd src/Castle.Core
+dotnet restore
+cd ../Castle.Core.Tests
 dotnet restore
 
 Write-Host "Building"
 
-dotnet build src/Castle.Core src/Castle.Core.Tests --configuration Release --out build/NETCORE
+dotnet build --configuration Release --out build/NETCORE
 
 Write-Host "Running tests"
 
-cd src/Castle.Core.Tests
 dotnet test
 
 exit $LASTEXITCODE
