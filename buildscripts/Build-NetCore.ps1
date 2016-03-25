@@ -11,9 +11,11 @@ $wc.DownloadFile('https://raw.githubusercontent.com/dotnet/cli/rel/1.0.0/scripts
 
 $env:InstallDir = $dotnetHome
 
+printenv
+
 Write-Host "Downloading dotnet/cli"
 
-$installPs1Path
+. $installPs1Path
 
 $env:PATH = ("$dotnetPath;" + $env:PATH)
 
