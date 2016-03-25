@@ -16,6 +16,7 @@
     "netstandardapp1.5": {
       "imports": [ "dnxcore50", "portable-net45+win8" ],
       "dependencies": {
+        "NETStandard.Library": "1.5.0-rc2-*",
         "Microsoft.CSharp": "4.0.1-rc2-*",
         "Serilog.Sinks.TextWriter": "2.0.0-beta-505",
         "System.Console": "4.0.0-rc2-*",
