@@ -21,6 +21,7 @@
     }
   },
   "buildOptions": {
+    "debugType": "portable",
     "warningsAsErrors": true,
     "keyFile": "../../buildscripts/CastleKey.snk",
     "compile": {
