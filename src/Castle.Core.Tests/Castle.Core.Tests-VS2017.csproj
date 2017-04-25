@@ -12,6 +12,11 @@
 		<AssemblyOriginatorKeyFile>..\..\buildscripts\CastleKey.snk</AssemblyOriginatorKeyFile>
 		<RuntimeIdentifier>win7-x64</RuntimeIdentifier>
 	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)'=='net461' OR '$(TargetFramework)'=='netcoreapp1.1'">
+		<DefineConstants>$(DefineConstants);FEATURE_TEST_SERILOGINTEGRATION</DefineConstants>
+	</PropertyGroup>
+
 	<ItemGroup Condition="'$(TargetFramework)'=='netcoreapp1.1'">
 		<Compile Remove="Components.DictionaryAdapter.Tests\Xml\**" />
 		<Compile Remove="log4netIntegration\**" />
@@ -32,6 +37,7 @@
 		<PackageReference Include="NUnit" Version="3.6.1" />
 		<PackageReference Include="NUnit.Console" Version="3.6.1" />
 		<PackageReference Include="NUnitLite" Version="3.6.1" />
+		<PackageReference Include="Serilog.Sinks.TextWriter" Version="2.1.0" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)'=='netcoreapp1.1'">
 		<PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
@@ -52,5 +58,5 @@
 		<Reference Include="WindowsBase" />
 		<Reference Include="System.Xml" />
 	</ItemGroup>
-	
+
 </Project>
